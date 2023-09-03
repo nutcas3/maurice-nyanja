@@ -13,30 +13,6 @@ export default {
 			content: "J'accorde une attention toute particulière au fait d'employer mes compétences pour aider autrui. Cela s'exprime par une affinité pour l'enseignement, et par la participation à des projets collaboratifs à vocation humanitaire.",
 		},
 	],
-	languages: [
-		{
-			language: "Français",
-			flag: "/icons/drapeau-france.svg",
-			level: "Langue maternelle",
-		},
-		{
-			language: "Anglais",
-			flag: "/icons/drapeau-uk.svg",
-			level_oral: "B2",
-			level_written: "C1",
-		},
-		{
-			language: "Allemand",
-			flag: "/icons/drapeau-allemagne.svg",
-			level_oral: "A2",
-			level_written: "A2",
-		},
-		{
-			language: "Espéranto",
-			flag: "/icons/drapeau-esperanto.svg",
-			level: "Débutant",
-		},
-	],
 	skills: {
 		os: {
 			label: "🖥️ Systèmes d'exploitation",
