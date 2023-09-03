@@ -1,62 +1,139 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import config from "../about.config"
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseMain from "../layouts/BaseMain.astro"
+import Accordion from "../components/Accordion.astro"
+import LanguageCard from "../components/LanguageCard.astro"
+import SkillGroup from '../components/SkillGroup.astro'
+import BannerGeomatics from "../icons/BannerGeomatics.astro"
+import BannerHumanitarian from "../icons/BannerHumanitarian.astro"
+import BannerInnovation from "../icons/BannerInnovation.astro"
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<BaseLayout title="About | Quentin Poterek" activeNavItem="/about">
+	<BaseMain>
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">👤 Profil</h2>
+			<div class="grid grid-cols-6 gap-y-12 gap-x-8">
+				{
+					config.profile.map((item, i) => (
+						<article class="col-span-6 md:col-span-2 flex flex-col items-center gap-y-12">
+							{(i === 0) && <BannerGeomatics />}
+							{(i === 1) && <BannerInnovation />}
+							{(i === 2) && <BannerHumanitarian />}
+							<div>
+								<h3 class="text-lg font-semibold mb-8">{item.title}</h3>
+								<p>{item.content}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">🗣️ Langues</h2>
+			<div class="flex flex-wrap justify-center gap-4">
+				{
+					config.languages.map(item => (
+						<LanguageCard 
+							language={item.language} 
+							flag={item.flag} 
+							level={item.level} 
+							level_oral={item.level_oral} 
+							level_written={item.level_written} 
+						/>
+					))
+				}
+			</div>
+		</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">👥 Collaboratif et humanitaire</h2>
+			<p>Etant membre de la <strong>Fondation OpenStreetMap</strong> et également bénévole auprès de <strong>CartONG</strong>, je contribue régulièrement au projet de cartographie collaborative <strong>OpenStreetMap</strong>. Ces contributions se font principalement autour des missions publiées sur le <strong>HOT Tasking Manager</strong>, notamment dans le cadre des <strong>activations</strong> qui font suite à des <strong>catastrophes naturelles</strong>.</p>
+		</section>
+	
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">⚒️ Compétences et outils</h2>
+			<p>Mes <strong>expériences professionnelles</strong> et ma formation de <strong>géomaticien</strong> notamment m'ont incité à développer des compétences dans des <strong>domaines variés</strong>, résumés ci-dessous. N'hésitez pas à dérouler les menus pour plus de détails.</p>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-2">
+				<div class="flex flex-col gap-y-2">
+					{
+						Object.keys(config.skills).map((item, i) => (
+							(i < 5 &&
+							<Accordion label={config.skills[item].label} classNames="">
+								<SkillGroup slot="content" items={config.skills[item].items} />
+							</Accordion>
+							)
+						))
+					}
+				</div>
+				<div class="flex flex-col gap-y-2">
+					{
+						Object.keys(config.skills).map((item, i) => (
+							(i >= 5 &&
+							<Accordion label={config.skills[item].label}>
+								<SkillGroup slot="content" items={config.skills[item].items} />
+							</Accordion>
+							)
+						))
+					}
+				</div>
+			</div>
+		</section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">💼 Expériences</h2>
+			<div class="flex flex-col gap-4">
+				{
+					config.experiences.map(item => (
+						<div class="flex flex-col sm:flex-row gap-4 first:pt-4 pb-4 border-b first:border-y border-neutral-900/10 dark:border-neutral-100/10 text-neutral-700 dark:text-neutral-300">
+							<div class="flex flex-col md:flex-row w-full md:w-1/2 gap-2">
+								<div class="w-full md:w-1/2 pt-0.5"><p>{item.start} - {item.end}</p></div>
+								<div class="flex flex-col w-full md:w-1/2 gap-y-1">
+									<p class="text-xl leading-1 text-neutral-900 dark:text-neutral-100">{item.employer}</p>
+									<p class="font-semibold">{item.position}</p>
+								</div>
+							</div>
+							<div class="flex flex-col w-full md:w-1/2 gap-2 pt-1">
+								{item.tasks.map(task => <p>{task}</p>)}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-y-12">
+			<h2 class="text-2xl font-bold">🎓 Education</h2>
+			<div class="flex flex-col gap-4">
+				{
+					config.education.map(item => (
+						<div class="flex flex-col sm:flex-row gap-4 first:pt-4 pb-4 border-b first:border-y border-neutral-900/10 dark:border-neutral-100/10 text-neutral-700 dark:text-neutral-300">
+							<div class="flex flex-col md:flex-row w-full md:w-1/2 gap-2">
+								<div class="w-full md:w-1/2 pt-0.5">
+									{
+										item.start ?
+										<p>{item.start} - {item.end}</p> :
+										<p>{item.end}</p>
+									}
+								</div>
+								<div class="flex flex-col w-full md:w-1/2 gap-y-1">
+									<p class="text-lg leading-1 text-neutral-900 dark:text-neutral-100">{item.organism}</p>
+									<p>{item.place}</p>
+								</div>
+							</div>
+							<div class="flex flex-col w-full md:w-1/2 gap-2 pt-1">
+								<p class="font-semibold">{item.title}</p>
+								<p>{item.honors}</p>
+								<p>{item.content}</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+	</BaseMain>
+</BaseLayout>

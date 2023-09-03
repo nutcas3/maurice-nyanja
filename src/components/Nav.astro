@@ -1,0 +1,26 @@
+---
+import DropdownMenu from "./DropdownMenu.astro"
+import NavItem from "./NavItem.astro"
+
+const { 
+	navItems, 
+	activeNavItem, 
+	hasDropdown, 
+} = Astro.props
+---
+
+<nav style="display:flex;justify-content:center;align-items:center;">
+	<div style="justify-items:center;align-items:center;column-gap:16px;" class="hidden md:flex">
+		{navItems.map(item => (
+			<NavItem 
+				href={item.href} 
+				text={item.text} 
+				isActive={item.href === activeNavItem} 
+				isBold={true}
+			/>
+		))}
+	</div>
+	<div class="block md:hidden">
+		{hasDropdown && <DropdownMenu navItems={navItems} />}
+	</div>
+</nav>
