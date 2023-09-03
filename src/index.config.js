@@ -1,11 +1,11 @@
 export default {
 	cv: [
 		{
-			title: "CV Géomatique",
+			title: "CV Development",
 			url: "/cv/PoterekQuentin_CV_Geomatique.pdf",
 		},
 		{
-			title: "CV Data Science",
+			title: "CV DevOps",
 			url: "/cv/PoterekQuentin_CV_DataScience.pdf",
 		},
 	],
